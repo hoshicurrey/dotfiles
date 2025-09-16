@@ -1,0 +1,13 @@
+[user]
+	name = takeshi
+	email = hoshikawa.takeshi@spua.ac.jp
+[core]
+	autocrlf = input
+[alias]
+	lol = log --graph --decorate --pretty=oneline --all --abbrev-commit
+[push]
+	default = simple
+[credential]
+	helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
