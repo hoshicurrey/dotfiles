@@ -4,5 +4,6 @@
 *.pem
 
 aws/.aws/credentials
-ssh/.ssh/id_ed25519
+ssh/.ssh/id_*
+ssh/.ssh/known_hosts
 
