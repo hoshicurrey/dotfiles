@@ -26,6 +26,7 @@ mkdir -p ~/.aws
 mkdir -p ~/work/{projects,data,tmp}
 
 echo "--- Brewfile ---"
+sudo -v
 brew bundle --file ~/dotfiles/brew/Brewfile
 
 echo "--- stow ---"
