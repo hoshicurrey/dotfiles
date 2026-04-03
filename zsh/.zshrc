@@ -6,3 +6,4 @@ export LC_ALL="en_US.UTF-8"
 export CLAUDE_CODE_USE_BEDROCK=1
 export AWS_REGION=ap-northeast-1
 export GOOGLE_OAUTH_CREDENTIALS="$HOME/.config/gcp/gcp-oauth.keys.json"
+export PATH="$HOME/.local/bin:$PATH"
