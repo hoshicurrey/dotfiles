@@ -9,3 +9,7 @@ Folder structure:
 - `weekly/` — weekly notes (`weekly-YYYY-MM-DD.md`)
 - `courses/` — course notes (`YYYY-MM-DD_科目名.md`)
 - `tasks.md` — task management file
+
+## User
+
+Course owner name: 星川（coursesディレクトリのフロントマター `owner` フィールドで使用）
