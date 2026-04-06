@@ -1,4 +1,11 @@
 {
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "model": "opusplan",
+  "language": "Japanese",
+  "voiceEnabled": true,
+  "skipAutoPermissionPrompt": true,
   "hooks": {
     "Notification": [
       {
