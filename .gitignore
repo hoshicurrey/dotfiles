@@ -4,4 +4,5 @@
 *.pem
 
 aws/.aws/credentials
+claude/.claude/CLAUDE.md
 
