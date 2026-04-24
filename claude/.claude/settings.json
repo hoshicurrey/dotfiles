@@ -1,7 +1,5 @@
 {
-  "permissions": {
-    "defaultMode": "auto"
-  },
+  "permissions": {},
   "model": "opusplan",
   "hooks": {
     "SessionStart": [
@@ -47,6 +45,7 @@
     }
   },
   "language": "Japanese",
+  "skipAutoPermissionPrompt": true,
   "voiceEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "tui": "fullscreen"
 }
