@@ -7,8 +7,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo '{\"hookSpecificOutput\": {\"hookEventName\": \"SessionStart\", \"additionalContext\": \"セッション開始時の自動タスク: /loop 1h /daily-report を今すぐ実行してください。\"}}'",
-            "statusMessage": "日報ループを開始中..."
+            "command": "echo '{\"hookSpecificOutput\": {\"hookEventName\": \"SessionStart\", \"additionalContext\": \"セッション開始時の自動タスク: Skillツールで loop スキルを \\\"1h /daily-report\\\" という引数で呼び出してCronジョブを設定してください。ただし /daily-report は今すぐ実行しないこと（Cronジョブのセットアップのみ）。\"}}'",
+            "statusMessage": "日報ループをセットアップ中..."
           }
         ]
       }
