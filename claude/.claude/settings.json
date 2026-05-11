@@ -8,8 +8,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo '{\"hookSpecificOutput\": {\"hookEventName\": \"SessionStart\", \"additionalContext\": \"セッション開始時の自動タスク: Skillツールで loop スキルを \\\"1h /daily-report\\\" という引数で呼び出してCronジョブを設定してください。ただし /daily-report は今すぐ実行しないこと（Cronジョブのセットアップのみ）。\"}}'",
-            "statusMessage": "日報ループをセットアップ中..."
+            "command": "echo '{\"hookSpecificOutput\": {\"hookEventName\": \"SessionStart\", \"additionalContext\": \"セッション開始時の自動タスク: CronListで既存ジョブを確認し、(1) /check-inのcronがなければCronCreateで cron=\\\"7 8-16 * * 1-5\\\", prompt=\\\"/check-in\\\", recurring=true で設定、(2) /daily-reportのcronがなければCronCreateで cron=\\\"33 16 * * 1-5\\\", prompt=\\\"/daily-report\\\", recurring=true で設定、(3) /daily-reportを毎時起動する旧仕様のcron（promptが/daily-reportで時間指定が毎時系: '7 * * * *' '0 * * * *' 等）があればCronDeleteで削除。いずれもスキル本体は今すぐ実行しないこと（cronセットアップのみ）。\"}}'",
+            "statusMessage": "客観視・日報cronをセットアップ中..."
           }
         ]
       }
