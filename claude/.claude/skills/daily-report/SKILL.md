@@ -1,6 +1,7 @@
 ---
 name: daily-report
 description: チャット履歴からObsidianの日報を作成
+model: haiku
 args:
   date:
     description: 日報の日付（YYYY-MM-DD形式、省略時は今日）
