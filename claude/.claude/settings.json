@@ -2,7 +2,6 @@
   "permissions": {
     "defaultMode": "auto"
   },
-  "model": "Haiku",
   "hooks": {
     "SessionStart": [
       {
@@ -48,7 +47,7 @@
   },
   "language": "Japanese",
   "tui": "fullscreen",
+  "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": true,
-  "agentPushNotifEnabled": true
+  "voiceEnabled": true
 }
