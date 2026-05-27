@@ -66,8 +66,9 @@ args:
    - 会話履歴の分析時に、どのタスクに関連する作業かを判断する材料にする
 
 3. **日報ファイルの存在確認と読み込み**：
-   - 保存先: CLAUDE.mdのvault pathの `daily/{date}.md`
-   - Readツールで既存ファイルの有無と内容を確認
+   - 今日の日報: `obsidian daily:read 2>&1 | grep -v "^[0-9]" | grep -v "^Your Obsidian"` で読み込み
+   - 特定日付（引数あり）: `obsidian read path="daily/{date}.md" 2>&1 | grep -v "^[0-9]" | grep -v "^Your Obsidian"` で読み込み
+   - ファイルが存在しない場合（エラーまたは空出力）は新規作成モードとして扱う
    - 既存ファイルがある場合は自動的に追記（確認不要）
 
 4. **会話履歴を分析**して、以下を簡潔に抽出：
@@ -94,10 +95,9 @@ args:
    - 「保存」または無修正のOKで即保存（再確認ループはしない）
 
 8. **日報の保存**：
-   - 既存ファイルへ追記する場合：Editツールで該当セクションを更新
-   - 新規または上書きの場合：Writeツールで保存
+   - 既存ファイルへ追記する場合：Editツールで `daily/{date}.md` を更新
+   - 新規作成の場合：`obsidian create path="daily/{date}.md" content="..." silent` で保存
    - ファイル名: `{date}.md` (YYYY-MM-DD形式)
-   - 保存先: CLAUDE.mdのvault pathの `daily/`
 
 9. **Todoistの完了タスクをマーク（締めモードのみ）**：
    - **追記モードではスキップ**
@@ -109,7 +109,8 @@ args:
 
 ## 注意事項
 
-- Bash（`date`）、Read、Write、EditツールとTodoist MCPを使用
+- Bash（`date`、`obsidian`）、Edit、TodoistMCPを使用
+- obsidianコマンドの起動ログ（タイムスタンプ行・"Your Obsidian..."行）は `grep -v` で除去する
 - チャット履歴が少ない場合は、ユーザーに追加情報を質問
 - 技術用語やツール名は正確に記載
 - 日付が指定されない場合は今日の日付を使用

@@ -7,7 +7,17 @@
       "Write(/Users/takeshi/.claude/skills/**)",
       "Write(/Users/takeshi/dotfiles/claude/.claude/skills/**)",
       "Bash(git commit*)",
-      "Bash(git push*)"
+      "Bash(git push*)",
+      "mcp__todoist__add-tasks",
+      "mcp__todoist__update-tasks",
+      "mcp__todoist__complete-tasks",
+      "mcp__todoist__reschedule-tasks",
+      "mcp__todoist__add-projects",
+      "mcp__todoist__update-projects",
+      "mcp__todoist__add-sections",
+      "mcp__todoist__update-sections",
+      "mcp__todoist__add-comments",
+      "mcp__todoist__delete-object"
     ]
   },
   "hooks": {
