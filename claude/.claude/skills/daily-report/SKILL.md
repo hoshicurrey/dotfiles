@@ -66,8 +66,7 @@ args:
    - 会話履歴の分析時に、どのタスクに関連する作業かを判断する材料にする
 
 3. **日報ファイルの存在確認と読み込み**：
-   - 今日の日報: `obsidian daily:read 2>&1 | grep -v "^[0-9]" | grep -v "^Your Obsidian"` で読み込み
-   - 特定日付（引数あり）: `obsidian read path="daily/{date}.md" 2>&1 | grep -v "^[0-9]" | grep -v "^Your Obsidian"` で読み込み
+   - `obsidian read path="main/daily/{date}.md" 2>&1 | grep -v "^[0-9]" | grep -v "^Your Obsidian"` で読み込み（引数なしの場合は今日の日付を使用）
    - ファイルが存在しない場合（エラーまたは空出力）は新規作成モードとして扱う
    - 既存ファイルがある場合は自動的に追記（確認不要）
 
@@ -96,7 +95,7 @@ args:
 
 8. **日報の保存**：
    - 既存ファイルへ追記する場合：Editツールで `daily/{date}.md` を更新
-   - 新規作成の場合：`obsidian create path="daily/{date}.md" content="..." silent` で保存
+   - 新規作成の場合：`obsidian create path="main/daily/{date}.md" content="..." silent` で保存
    - ファイル名: `{date}.md` (YYYY-MM-DD形式)
 
 9. **Todoistの完了タスクをマーク（締めモードのみ）**：
