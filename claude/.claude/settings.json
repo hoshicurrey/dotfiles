@@ -2,10 +2,10 @@
   "permissions": {
     "defaultMode": "auto",
     "allow": [
-      "Edit(/Users/takeshi/.claude/skills/**)",
-      "Edit(/Users/takeshi/dotfiles/claude/.claude/skills/**)",
-      "Write(/Users/takeshi/.claude/skills/**)",
-      "Write(/Users/takeshi/dotfiles/claude/.claude/skills/**)",
+      "Edit(~/.claude/skills/**)",
+      "Edit(~/dotfiles/claude/.claude/skills/**)",
+      "Write(~/.claude/skills/**)",
+      "Write(~/dotfiles/claude/.claude/skills/**)",
       "Bash(git commit*)",
       "Bash(git push*)"
     ]
