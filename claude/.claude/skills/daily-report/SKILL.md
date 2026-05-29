@@ -66,7 +66,7 @@ args:
    - 会話履歴の分析時に、どのタスクに関連する作業かを判断する材料にする
 
 3. **日報ファイルの存在確認と読み込み**：
-   - `obsidian read path="daily/{date}.md" 2>&1 | grep -v "^[0-9]" | grep -v "^Your Obsidian"` で読み込み（引数なしの場合は今日の日付を使用）
+   - `obsidian daily:read 2>&1 | grep -v "^[0-9]" | grep -v "^Your Obsidian"` で読み込み
    - ファイルが存在しない場合（エラーまたは空出力）は新規作成モードとして扱う
    - 既存ファイルがある場合は自動的に追記（確認不要）
 
@@ -94,9 +94,10 @@ args:
    - 「保存」または無修正のOKで即保存（再確認ループはしない）
 
 8. **日報の保存**：
-   - 既存ファイルへ追記する場合：Editツールで vault の絶対パス `~/Library/Mobile Documents/iCloud~md~obsidian/Documents/main/daily/{date}.md` を更新
-   - 新規作成の場合：`obsidian create path="daily/{date}.md" content="..." silent` で保存
-   - ファイル名: `{date}.md` (YYYY-MM-DD形式)
+   - まず `DAILY_PATH=$(obsidian daily:path 2>/dev/null | grep -v "^[0-9]" | grep -v "^Your Obsidian")` でvault相対パスを取得
+   - vault絶対パス：`~/Library/Mobile Documents/iCloud~md~obsidian/Documents/main/$DAILY_PATH`
+   - 既存ファイルへ追記する場合：Editツールで上記絶対パスを更新
+   - 新規作成の場合：Writeツールで上記絶対パスに書き込み
 
 9. **Todoistの完了タスクをマーク（締めモードのみ）**：
    - **追記モードではスキップ**
