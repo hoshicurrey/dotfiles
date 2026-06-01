@@ -1,6 +1,7 @@
 {
   "permissions": {
     "defaultMode": "auto",
+    "additionalDirectories": ["/Users/takeshi/vault"],
     "allow": [
       "Edit(~/.claude/skills/**)",
       "Edit(~/dotfiles/claude/.claude/skills/**)",
@@ -24,6 +25,17 @@
             "type": "command",
             "command": "echo '{\"hookSpecificOutput\": {\"hookEventName\": \"SessionStart\", \"additionalContext\": \"セッション開始時の自動タスク: CronListで既存ジョブを確認し、(1) /check-inのcronがなければCronCreateで cron=\\\"7 8-10,13-16 * * 1-5\\\", prompt=\\\"/check-in\\\", recurring=true で設定、(2) /daily-reportのcronがなければCronCreateで cron=\\\"33 16 * * 1-5\\\", prompt=\\\"/daily-report recap\\\", recurring=true で設定、(3) /daily-reportを毎時起動する旧仕様のcron（promptが/daily-reportで時間指定が毎時系: '7 * * * *' '0 * * * *' 等）があればCronDeleteで削除。いずれもスキル本体は今すぐ実行しないこと（cronセットアップのみ）。\"}}'",
             "statusMessage": "客観視・日報cronをセットアップ中..."
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -f \"$HOME/.claude/hooks/guard-obsidian.py\" ] && python3 \"$HOME/.claude/hooks/guard-obsidian.py\" || exit 0"
           }
         ]
       }

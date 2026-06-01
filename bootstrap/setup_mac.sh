@@ -24,6 +24,7 @@ echo "--- Directories ---"
 mkdir -p ~/.ssh && chmod 700 ~/.ssh
 mkdir -p ~/.aws
 mkdir -p ~/work/{projects,data,tmp}
+ln -sfn ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/main ~/vault
 
 echo "--- Brewfile ---"
 sudo -v

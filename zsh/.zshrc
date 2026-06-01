@@ -5,3 +5,5 @@ export LC_ALL="en_US.UTF-8"
 
 export GOOGLE_OAUTH_CREDENTIALS="$HOME/.config/gcp/gcp-oauth.keys.json"
 export PATH="$HOME/.local/bin:$PATH"
+
+alias cc='cd ~/work/projects/admin && claude'

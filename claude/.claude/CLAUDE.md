@@ -86,6 +86,7 @@ Course owner name: 星川（coursesディレクトリのフロントマター `o
 
 ### .gitignore 雛形
 
+
 ```
 .DS_Store
 data/raw/
@@ -104,3 +105,48 @@ __pycache__/
 renv/library/
 .claude/local/
 ```
+
+## Obsidian vault の取り扱い
+
+Vault: `~/vault`（実体: `~/Library/Mobile Documents/iCloud~md~obsidian/Documents/main`）
+
+`additionalDirectories` でホームから起動したまま vault 全体に読み書きできる。CWD は常にホーム。
+
+### 役割分担
+
+| 操作 | 担当 |
+|------|------|
+| 本文を読む・要約・下書き・本文を編集 | 通常のファイルアクセス（Read / Edit / Grep / Glob）でよい |
+| 移動・リネーム・削除・テンプレ作成・daily・properties・tag 操作 | **必ず `obsidian` CLI 経由**（wikilink 保護） |
+
+vault 内で `mv` / `rm` / `rmdir` を直接使わない（PreToolUse hook でブロックされる）。
+
+### 前提
+
+- `obsidian` は起動中の Obsidian アプリを操作するリモコン。アプリが起動していること（未起動でも自動起動するが、完了を待つ）。
+- 構文に不安があれば必ず `obsidian help <command>` で確認してから使う。引数は `key=value` 形式。
+- 学習カットオフ以降にリリースされたコマンドがあるため、使う前に `obsidian help` で一覧を確認する。
+
+### よく使うコマンド
+
+```bash
+obsidian help                                        # コマンド一覧
+obsidian daily                                       # 今日の daily note を開く
+obsidian daily:append content="- [ ] タスク"         # daily note に追記
+obsidian daily:read                                  # daily note を読む
+obsidian read file="path/to/note"                    # 指定ノートを読む
+obsidian search query="検索語"                        # vault を全文検索
+obsidian search query="status::active" format=json   # JSON 出力
+obsidian create name="フォルダ/新規ノート" template=テンプレ名   # テンプレから作成
+obsidian create name="フォルダ/新規ノート" content="# 見出し"   # 内容指定で作成
+obsidian files sort=modified limit=5                 # 更新順ノート一覧
+obsidian move file="old.md" name="new.md"            # 移動/リネーム（リンク自動修正）
+obsidian delete file="path/to/note"                  # 削除
+obsidian property:set file="path" key="status" value="active"  # プロパティ設定
+obsidian tags counts                                 # タグと頻度
+obsidian tasks daily                                 # daily note のタスク一覧
+```
+
+### 定型ワークフローとの分担
+
+daily-report / check-in / morning のような繰り返し処理は各スキル内に obsidian コマンドを直書きする。本ルールは ad-hoc な作業向け。
